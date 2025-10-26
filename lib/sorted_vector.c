@@ -1,9 +1,9 @@
 /**
  * Contains functions for the sorted vector struct
  *
- * @author: STUDENT ADD YOUR NAME
+ * @author: Zhanyi Chen
  * @class: CS 5008
- * @term: UPDATE WITH CURRENT SEMESTER
+ * @term: 25Fall
 **/
 
 #include "vector.h"
@@ -24,7 +24,55 @@
  * @param movie the movie to add
 */
 void add_to_sorted_vector(SortedMovieVector * vector, Movie * movie) {
-    // STUDENT TODO: implement this function
+    if(vector->size == 0){
+        vector_insert(vector,movie,0);
+        return;
+    }
+    for(int i = 0; i < vector->size; i++){
+        if(compare_movies(vector->movies[i], movie) > 0){
+            vector_insert(vector,movie,i);
+            return; 
+        }
+
+    }
+    vector_insert(vector,movie,vector->size);
+}
+/**
+ * A helper function using binary search
+ */
+
+int binary_find(SortedMovieVector * vector, int start, int end, const char* title){
+    if (start == end){
+        if (strcasecmp(vector->movies[start]->title, title)!= 0){
+            return -1;
+        }
+        else{
+            return start;
+        }
+    }
+    if(start == end - 1){
+        if(strcasecmp(vector->movies[start]->title, title)== 0){
+            return start;
+        }
+        else if (strcasecmp(vector->movies[end]->title, title)== 0)
+        {
+            return end;
+        }
+        return -1;   
+    }
+    int mid = (end - start)/2 + start;
+    int titles_cmp = strcasecmp(vector->movies[mid]->title, title);
+    if (titles_cmp > 0){
+        return binary_find(vector,start,mid,title);
+
+    }
+    else if (titles_cmp < 0)
+    {
+        return binary_find(vector,mid,end,title);
+
+    }
+    return mid;
+    
 }
 
 /**
@@ -43,11 +91,14 @@ void add_to_sorted_vector(SortedMovieVector * vector, Movie * movie) {
  * @return the movie if found, NULL otherwise
  */
 Movie * find_in_sorted_vector(SortedMovieVector * vector, const char * title) {
-    // STUDENT TODO: implement this function
-
-    // if the movie is not found, return NULL
+    int index = binary_find(vector,0,vector->size - 1,title);
+    if (index >= 0){
+        return vector->movies[index];
+    }
     return NULL;
 }
+
+
 
 /**
  * Checks if the sorted vector contains a movie with the given title.
@@ -65,7 +116,10 @@ Movie * find_in_sorted_vector(SortedMovieVector * vector, const char * title) {
  * @return the movie removed, NULL otherwise
  */
 Movie* sorted_vector_remove(SortedMovieVector *vector, const char *title){
-    // STUDENT TODO: implement this function
+    int index = binary_find(vector,0,vector->size - 1,title);
+    if (index >= 0){
+        return vector_remove(vector, index);
+    }
+    return NULL;
 
-    return NULL; // not found
 }
