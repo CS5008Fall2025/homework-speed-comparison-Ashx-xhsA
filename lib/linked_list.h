@@ -1,9 +1,9 @@
 /**
  * Simple Linked list implementation
  *
- * @author: STUDENT ADD YOUR NAME
+ * @author: Zhanyi Chen
  * @class: CS 5008
- * @term: UPDATE WITH CURRENT SEMESTER
+ * @term: 25Fall
  */
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
@@ -14,6 +14,7 @@
 
 typedef struct snode {
     Movie * movie;
+    struct snode *prev;
     struct snode *next;
 } node;
 
