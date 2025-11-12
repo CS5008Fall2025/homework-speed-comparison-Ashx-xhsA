@@ -8,7 +8,7 @@ Github Account name: Ashx-xhsA
 
 Link to Assignment on Github: https://github.com/CS5008Fall2025/homework-speed-comparison-Ashx-xhsA
 
-How many hours did it take you to complete this assignment (estimate)?
+How many hours did it take you to complete this assignment (estimate)?10
 
 Did you collaborate with any other students/TAs/Professors? If so, tell us who and in what capacity.
 
@@ -16,4 +16,5 @@ Did you collaborate with any other students/TAs/Professors? If so, tell us who a
 
 Did you use any external resources (you do not have to cite in class material)? (Cite them below)
 
-- Comment et al. (2025) Flatten BST to sorted list: Increasing order, GeeksforGeeks. Available at: https://www.geeksforgeeks.org/dsa/flatten-bst-to-sorted-list-increasing-order/ (Accessed: 11 November 2025).
+- GeeksforGeeks. (2025) Flatten BST to sorted list: Increasing order, GeeksforGeeks. Available at: https://www.geeksforgeeks.org/dsa/flatten-bst-to-sorted-list-increasing-order/ (Accessed: 11 November 2025).
+- GeeksforGeeks. (2025, October 11). _AVL Tree Data Structure_. GeeksforGeeks. https://www.geeksforgeeks.org/dsa/introduction-to-avl-tree/
