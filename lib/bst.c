@@ -288,7 +288,7 @@ char * __bst__to_str_postorder(BSTNode * curr, char * str) {
     }
     __bst__to_str_postorder(curr->left, str);
     __bst__to_str_postorder(curr->right, str);
-    __bst__update_str(curr, str);
+    __bst__update_str(curr->movie, str);
 
     return str;
 }
@@ -308,7 +308,7 @@ char * __bst__to_str_preorder(BSTNode * curr, char * str) {
     if(curr == NULL){
         return str;
     }
-    __bst__update_str(curr, str);
+    __bst__update_str(curr->movie, str);
     __bst__to_str_preorder(curr->left, str);
     __bst__to_str_preorder(curr->right, str);
 
@@ -330,7 +330,7 @@ char * __bst__to_str_inorder(BSTNode * curr, char * str) {
     if(curr == NULL){
         return str;
     }
-    __bst__update_str(curr, str);
+    __bst__update_str(curr->movie, str);
     __bst__to_str_inorder(curr->left, str);
     __bst__to_str_inorder(curr->right, str);
 
