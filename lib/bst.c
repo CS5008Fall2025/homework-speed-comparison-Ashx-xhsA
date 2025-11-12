@@ -207,9 +207,20 @@ void bst_remove(BST * bst, Movie * movie) {
  * @return the node that was found
 */
 BSTNode * __bst__find(BSTNode * curr, const char * title) {
-   // STUDENT TODO: implement this function
+    if(curr == NULL){
+        return NULL;
+    }
+   if (strcasecmp(title, curr->movie->title) == 0) {
+       return curr;
+   }
+   else if (strcasecmp(title, curr->movie->title) < 0){
+    return __bst__find(curr->left, title);
+   }
+   else{
+    return __bst__find(curr->right, title);
+   }
 
-   return NULL; // STUDENT TODO: update this return statement if needed
+   
 }
 
 /**
