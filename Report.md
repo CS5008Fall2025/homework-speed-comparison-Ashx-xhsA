@@ -197,27 +197,34 @@ For example:
 
 1. The tests were inherently biased towards the BST to perform better due the setup of the experiment. Explain why this is the case.  (hint: think about the randomization of the data, and the worst case scenario for BST).
 
+   > Because the input data is random. Random data makes it easier for BTS to generate relatively balanced trees.
+
 2. What would generate the worst case scenery for a BST?
 
-   > The input data is ordered or nearly ordered.
+   > The input data is ordered or nearly ordered, causing the BST to degenerate into a linked list.
 
 3. Researching beyond the module, how would one fix a BST so the worst case scenario matches (or at least i closer to) the average case.[^1^]
+
+   > Implement AVL tree that can rotate to maintain self balance.
+
 
 ## Scenario
 
 Fill out the table below. This is a common technical interview topic!
 
-| Structure          | Good to use when                                                                 | Bad to use when                                                                  |
-| ------------------ | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| Vector             |                                                                                  |                                                                                  |
-| Linked List        | Good for stacks with frequent front only access                                  |                                                                                  |
-| Sorted Vector      | When values coming in are already mostly sorted and we need quick search access. | When space is limited and the dataset is extremely large causing memory to swap. |
-| Sorted Linked List |                                                                                  |                                                                                  |
-| BST                |                                                                                  | data is presorted                                                                |
+| Structure          | Good to use when                                             | Bad to use when                                              |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Vector             | Need to access by index                                      | Need to delete frequently in the middle                      |
+| Linked List        | Good for stacks with frequent front only access              | Need to access by index                                      |
+| Sorted Vector      | When values coming in are already mostly sorted and we need quick search access | When space is limited and the dataset is extremely large causing memory to swap |
+| Sorted Linked List | Add data in the middle                                       | Search for data                                              |
+| BST                | data is random                                               | data is presorted                                            |
 
 ## Conclusion
 
 Summarize your findings. Where there any surprises?  What did you end up learning by comparing speeds?
+
+> Yes, I've learned that the actual runtime of code can differ from its Big O notation.
 
 ## Technical Interview Practice Questions
 
@@ -229,15 +236,7 @@ For both these questions, are you are free to use what you did as the last secti
 
 ## References
 
-Add your references here. A good reference includes an inline citation, such as [1] , and then down in your references section, you include the full details of the reference. Computer Science research often uses [IEEE] or [ACM Reference format].
-
-[1] Reference info, date, etc.
+[1] GeeksforGeeks. (2025, October 11). *AVL Tree Data Structure*. GeeksforGeeks. https://www.geeksforgeeks.org/dsa/introduction-to-avl-tree/
 
 [^1^]: Implementing a BST with a self-balancing algorithm, such as AVL or Red-Black Trees is a great research paper topic!
 
-<!-- links moved to bottom for easier reading in plain text (btw, this a comment that doesn't show in the webpage generated-->
-
-[image markdown]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images
-
-[ACM Reference Format]: https://www.acm.org/publications/authors/reference-formatting
-[IEEE]: https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/style_references_manual.pdf
