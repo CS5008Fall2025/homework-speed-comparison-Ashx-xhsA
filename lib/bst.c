@@ -1,9 +1,9 @@
 /**
  * Basic BST implementation.
  *
- * @author: STUDENT ADD YOUR NAME
+ * @author: Zhanyi Chen 
  * @class: CS 5008
- * @term: UPDATE WITH CURRENT SEMESTER
+ * @term: 25Fall
  */
 
 #include <stdbool.h>
@@ -51,7 +51,7 @@ void __bst__free_node(BSTNode * node, bool clear) {
     if (node == NULL) {
         return;
     }
-    // STUDENT TODO: update this comment - is this, pre, post, or in order traversal?
+    // post order traversal
     __bst__free_node(node->left, clear);
     __bst__free_node(node->right, clear);
     if (clear) {
@@ -91,7 +91,29 @@ void clear_and_free_bst(BST * bst) {
  * @param movie the movie to add 
 */
 void __bst__add(BSTNode * curr, Movie * movie) {
-   // STUDENT TODO: implement this function
+   BSTNode* left = curr->left;
+   BSTNode* right = curr->right;
+
+   if (compare_movies(movie, curr->movie)<0){
+    if(left != NULL){
+        __bst__add(left, movie);
+    }
+    else{
+        BSTNode* newNode = __bst__new_node(movie);
+        curr->left = newNode;
+        return;
+    }
+   }
+   else {
+    if(right != NULL){
+        __bst__add(right, movie);
+    }
+    else{
+        BSTNode* newNode = __bst__new_node(movie);
+        curr->right = newNode;
+        return;
+    }
+   }
 }
 /**
  * Adds the given movie into the BST. 
