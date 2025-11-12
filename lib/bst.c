@@ -283,7 +283,13 @@ char * __bst__update_str(Movie * movie, char * str) {
  * @return the string that was appended to
 */
 char * __bst__to_str_postorder(BSTNode * curr, char * str) {
-    // STUDENT TODO: implement this function
+    if(curr == NULL){
+        return str;
+    }
+    __bst__to_str_postorder(curr->left, str);
+    __bst__to_str_postorder(curr->right, str);
+    __bst__update_str(curr, str);
+
     return str;
 }
 
@@ -299,7 +305,13 @@ char * __bst__to_str_postorder(BSTNode * curr, char * str) {
  *
  */
 char * __bst__to_str_preorder(BSTNode * curr, char * str) {
-    // STUDENT TODO: implement this function
+    if(curr == NULL){
+        return str;
+    }
+    __bst__update_str(curr, str);
+    __bst__to_str_preorder(curr->left, str);
+    __bst__to_str_preorder(curr->right, str);
+
     return str;
 }
 
@@ -315,7 +327,13 @@ char * __bst__to_str_preorder(BSTNode * curr, char * str) {
  * @return the string that was appended to
 */
 char * __bst__to_str_inorder(BSTNode * curr, char * str) {
-    // STUDENT TODO: implement this function
+    if(curr == NULL){
+        return str;
+    }
+    __bst__update_str(curr, str);
+    __bst__to_str_inorder(curr->left, str);
+    __bst__to_str_inorder(curr->right, str);
+
     return str;
 }
 
@@ -397,7 +415,14 @@ char * bst_to_str(BST * tree, int traversal) {
  * 
 */
 void __bst__to_sorted_array(BSTNode * curr, Movie ** array, int * index) {
-    // STUDENT TODO: implement this function
+    if(curr == NULL){
+        return;
+    }
+
+    __bst__to_sorted_array(curr->left, array, index);
+    array[* index] = curr->movie;
+    (*index)++;
+    __bst__to_sorted_array(curr->right, array, index);
 }
 
 /**
